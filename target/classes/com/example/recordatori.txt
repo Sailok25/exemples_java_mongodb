@@ -1,0 +1,154 @@
+====================================================
+Guía Rápida de Métodos y Filtros en MongoDB
+====================================================
+
+1. Métodos Principales
+----------------------------------------------------
+
+1.1. Crear y Obtener una Colección
+- createCollection("nombre"): Crea una nueva colección.
+- getCollection("nombre"): Obtiene una colección existente.
+
+1.2. Inserción de Documentos
+- insertOne(doc): Inserta un solo documento.
+- insertMany(List<doc>): Inserta múltiples documentos.
+
+1.3. Lectura de Documentos (Consulta)
+- find(): Retorna todos los documentos.
+- find(eq("campo", valor)): Retorna documentos con una condición.
+
+1.4. Actualización de Documentos
+- updateOne(filtro, actualización): Actualiza un documento.
+- updateMany(filtro, actualización): Actualiza múltiples documentos.
+
+1.5. Eliminación de Documentos
+- deleteOne(filtro): Elimina un documento.
+- deleteMany(filtro): Elimina múltiples documentos.
+
+2. Filtros
+----------------------------------------------------
+
+2.1. Filtros Básicos
+- eq("campo", valor): Igual.
+- ne("campo", valor): Diferente.
+- gt("campo", valor): Mayor que.
+- gte("campo", valor): Mayor o igual que.
+- lt("campo", valor): Menor que.
+- lte("campo", valor): Menor o igual que.
+- and(cond1, cond2): Todas las condiciones deben cumplirse.
+- or(cond1, cond2): Al menos una condición debe cumplirse.
+- in("campo", valores...): El campo contiene alguno de los valores.
+- nin("campo", valores...): El campo NO contiene ninguno de los valores.
+- exists("campo", true/false): Comprueba si un campo existe.
+- type("campo", tipo): Comprueba el tipo de campo.
+- regex("campo", "patrón"): Busca por patrones de texto.
+
+2.2. Filtros Avanzados
+- elemMatch("array", condiciones): Busca elementos dentro de un array de objetos.
+- all("array", valores...): El array debe contener todos los valores.
+- size("array", mida): Busca arrays de una mida específica.
+- not(condición): Niega una condición.
+
+3. Ejemplos de Filtros
+----------------------------------------------------
+
+3.1. Buscar documentos donde "edad" sea exactamente 30
+- Filters.eq("edad", 30)
+
+3.2. Buscar documentos donde "nombre" no sea "Joan"
+- Filters.ne("nombre", "Joan")
+
+3.3. Buscar documentos donde "edad" sea mayor que 25
+- Filters.gt("edad", 25)
+
+3.4. Buscar documentos donde "salario" sea mayor o igual a 30000
+- Filters.gte("salario", 30000)
+
+3.5. Buscar documentos donde "edad" sea menor que 40
+- Filters.lt("edad", 40)
+
+3.6. Buscar documentos donde "edad" sea menor o igual que 35
+- Filters.lte("edad", 35)
+
+3.7. Buscar documentos donde "edad" esté entre 25 y 40
+- Filters.and(Filters.gte("edad", 25), Filters.lte("edad", 40))
+
+3.8. Buscar documentos donde "nombre" sea "Joan" o "Maria"
+- Filters.or(Filters.eq("nombre", "Joan"), Filters.eq("nombre", "Maria"))
+
+3.9. Buscar documentos donde "ciudad" sea "Barcelona", "Madrid" o "València"
+- Filters.in("ciudad", "Barcelona", "Madrid", "València")
+
+3.10. Buscar documentos donde "departamento" NO sea "IT" ni "RRHH"
+- Filters.nin("departamento", "IT", "RRHH")
+
+3.11. Buscar documentos donde el campo "email" exista
+- Filters.exists("email")
+
+3.12. Buscar documentos donde el campo "telefono" NO exista
+- Filters.exists("telefono", false)
+
+3.13. Buscar documentos donde "edad" sea de tipo integer
+- Filters.type("edad", BsonType.INT32)
+
+3.14. Buscar documentos donde "nombre" comience por "Jo"
+- Filters.regex("nombre", "^Jo")
+
+3.15. Buscar documentos donde "email" acabe en "@gmail.com"
+- Filters.regex("email", "@gmail\\.com$")
+
+3.16. Buscar documentos donde el array "habilitats" contenga "Java" y "MongoDB"
+- Filters.all("habilitats", "Java", "MongoDB")
+
+3.17. Buscar documentos donde el array "habilitats" contenga "Java" o "MongoDB"
+- Filters.in("habilitats", "Java", "MongoDB")
+
+3.18. Buscar documentos donde el array "habilitats" tenga exactamente 3 elementos
+- Filters.size("habilitats", 3)
+
+3.19. Buscar documentos donde "nombre" NO comience por "J"
+- Filters.not(Filters.regex("nombre", "^J"))
+
+4. Ejemplos de Consultas
+----------------------------------------------------
+
+4.1. Buscar todos los documentos
+- collection.find()
+
+4.2. Buscar un documento específico por valor exacto
+- collection.find(Filters.eq("nombre", "Joan")).first()
+
+4.3. Buscar documentos por valores mayores/menores
+- collection.find(Filters.gte("edad", 30))
+
+4.4. Buscar documentos por múltiples valores
+- collection.find(Filters.in("nombre", "Joan", "Maria"))
+
+4.5. Buscar documentos con AND y OR
+- collection.find(Filters.and(Filters.eq("cotxe", true), Filters.gte("edat", 25)))
+
+4.6. Buscar documentos en un campo tipo documento
+- collection.find(Filters.eq("adreça.població", "Barcelona"))
+
+4.7. Buscar documentos en un campo tipo lista de documentos
+- collection.find(Filters.elemMatch("projectes", Filters.gte("pressupost", 60000)))
+
+5. Ejemplos de Actualización
+----------------------------------------------------
+
+5.1. Actualizar un solo documento
+- collection.updateOne(Filters.eq("nombre", "Joan"), Updates.set("edad", 26))
+
+5.2. Actualizar múltiples documentos
+- collection.updateMany(Filters.eq("ciudad", "Barcelona"), Updates.set("ciudad", "Girona"))
+
+6. Ejemplos de Eliminación
+----------------------------------------------------
+
+6.1. Eliminar un solo documento
+- collection.deleteOne(Filters.eq("nombre", "Joan"))
+
+6.2. Eliminar múltiples documentos
+- collection.deleteMany(Filters.eq("ciudad", "Girona"))
+
+====================================================
