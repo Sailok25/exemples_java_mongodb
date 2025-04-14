@@ -15,6 +15,7 @@ Si quieres descargar este repositorio y hacer uso del mismo requieres de esto:
 - MongoDB instalado y en ejecución en `localhost:27017`
 
 ## Configuración
+Si quieres descargar este repositoro sigue estos pasos
 
 1. **Clonar el Repositorio**:
    ```sh
