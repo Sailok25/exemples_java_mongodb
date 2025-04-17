@@ -10,6 +10,7 @@ import static com.mongodb.client.model.Filters.eq;
 import static com.mongodb.client.model.Updates.set;
 
 public class exemplesVariats {
+    private static final String rutaServidor = "mongodb://localhost:27017";
     public static void main(String[] args) {
         // Ejecutar ejemplos de música
         insertMusicDocuments();
@@ -44,7 +45,6 @@ public class exemplesVariats {
 
     // Métodos para la temática de música
     public static void insertMusicDocuments() {
-        String rutaServidor = "mongodb://localhost:27017";
         try (MongoClient mongoClient = MongoClients.create(rutaServidor)) {
             MongoDatabase database = mongoClient.getDatabase("testDB");
             MongoCollection<Document> collection = database.getCollection("musica");
@@ -63,7 +63,6 @@ public class exemplesVariats {
     }
 
     public static void findMusicDocuments() {
-        String rutaServidor = "mongodb://localhost:27017";
         try (MongoClient mongoClient = MongoClients.create(rutaServidor)) {
             MongoDatabase database = mongoClient.getDatabase("testDB");
             MongoCollection<Document> collection = database.getCollection("musica");
@@ -83,7 +82,6 @@ public class exemplesVariats {
     }
 
     public static void updateMusicDocuments() {
-        String rutaServidor = "mongodb://localhost:27017";
         try (MongoClient mongoClient = MongoClients.create(rutaServidor)) {
             MongoDatabase database = mongoClient.getDatabase("testDB");
             MongoCollection<Document> collection = database.getCollection("musica");
@@ -96,7 +94,6 @@ public class exemplesVariats {
     }
 
     public static void deleteMusicDocuments() {
-        String rutaServidor = "mongodb://localhost:27017";
         try (MongoClient mongoClient = MongoClients.create(rutaServidor)) {
             MongoDatabase database = mongoClient.getDatabase("testDB");
             MongoCollection<Document> collection = database.getCollection("musica");
@@ -110,7 +107,6 @@ public class exemplesVariats {
 
     // Métodos para la temática de parking
     public static void insertParkingDocuments() {
-        String rutaServidor = "mongodb://localhost:27017";
         try (MongoClient mongoClient = MongoClients.create(rutaServidor)) {
             MongoDatabase database = mongoClient.getDatabase("testDB");
             MongoCollection<Document> collection = database.getCollection("parking");
@@ -129,7 +125,6 @@ public class exemplesVariats {
     }
 
     public static void findParkingDocuments() {
-        String rutaServidor = "mongodb://localhost:27017";
         try (MongoClient mongoClient = MongoClients.create(rutaServidor)) {
             MongoDatabase database = mongoClient.getDatabase("testDB");
             MongoCollection<Document> collection = database.getCollection("parking");
@@ -149,7 +144,6 @@ public class exemplesVariats {
     }
 
     public static void updateParkingDocuments() {
-        String rutaServidor = "mongodb://localhost:27017";
         try (MongoClient mongoClient = MongoClients.create(rutaServidor)) {
             MongoDatabase database = mongoClient.getDatabase("testDB");
             MongoCollection<Document> collection = database.getCollection("parking");
@@ -162,7 +156,6 @@ public class exemplesVariats {
     }
 
     public static void deleteParkingDocuments() {
-        String rutaServidor = "mongodb://localhost:27017";
         try (MongoClient mongoClient = MongoClients.create(rutaServidor)) {
             MongoDatabase database = mongoClient.getDatabase("testDB");
             MongoCollection<Document> collection = database.getCollection("parking");
@@ -176,7 +169,6 @@ public class exemplesVariats {
 
     // Métodos para la temática de supermercado
     public static void insertSupermarketDocuments() {
-        String rutaServidor = "mongodb://localhost:27017";
         try (MongoClient mongoClient = MongoClients.create(rutaServidor)) {
             MongoDatabase database = mongoClient.getDatabase("testDB");
             MongoCollection<Document> collection = database.getCollection("supermercado");
@@ -195,7 +187,6 @@ public class exemplesVariats {
     }
 
     public static void findSupermarketDocuments() {
-        String rutaServidor = "mongodb://localhost:27017";
         try (MongoClient mongoClient = MongoClients.create(rutaServidor)) {
             MongoDatabase database = mongoClient.getDatabase("testDB");
             MongoCollection<Document> collection = database.getCollection("supermercado");
@@ -215,7 +206,6 @@ public class exemplesVariats {
     }
 
     public static void updateSupermarketDocuments() {
-        String rutaServidor = "mongodb://localhost:27017";
         try (MongoClient mongoClient = MongoClients.create(rutaServidor)) {
             MongoDatabase database = mongoClient.getDatabase("testDB");
             MongoCollection<Document> collection = database.getCollection("supermercado");
@@ -228,7 +218,6 @@ public class exemplesVariats {
     }
 
     public static void deleteSupermarketDocuments() {
-        String rutaServidor = "mongodb://localhost:27017";
         try (MongoClient mongoClient = MongoClients.create(rutaServidor)) {
             MongoDatabase database = mongoClient.getDatabase("testDB");
             MongoCollection<Document> collection = database.getCollection("supermercado");
@@ -242,7 +231,6 @@ public class exemplesVariats {
 
     // Métodos para la temática de películas
     public static void insertMovieDocuments() {
-        String rutaServidor = "mongodb://localhost:27017";
         try (MongoClient mongoClient = MongoClients.create(rutaServidor)) {
             MongoDatabase database = mongoClient.getDatabase("testDB");
             MongoCollection<Document> collection = database.getCollection("peliculas");
@@ -261,7 +249,6 @@ public class exemplesVariats {
     }
 
     public static void findMovieDocuments() {
-        String rutaServidor = "mongodb://localhost:27017";
         try (MongoClient mongoClient = MongoClients.create(rutaServidor)) {
             MongoDatabase database = mongoClient.getDatabase("testDB");
             MongoCollection<Document> collection = database.getCollection("peliculas");
@@ -281,7 +268,6 @@ public class exemplesVariats {
     }
 
     public static void updateMovieDocuments() {
-        String rutaServidor = "mongodb://localhost:27017";
         try (MongoClient mongoClient = MongoClients.create(rutaServidor)) {
             MongoDatabase database = mongoClient.getDatabase("testDB");
             MongoCollection<Document> collection = database.getCollection("peliculas");
@@ -294,7 +280,6 @@ public class exemplesVariats {
     }
 
     public static void deleteMovieDocuments() {
-        String rutaServidor = "mongodb://localhost:27017";
         try (MongoClient mongoClient = MongoClients.create(rutaServidor)) {
             MongoDatabase database = mongoClient.getDatabase("testDB");
             MongoCollection<Document> collection = database.getCollection("peliculas");
@@ -308,7 +293,6 @@ public class exemplesVariats {
 
     // Métodos para la temática de veterinaria
     public static void insertVetDocuments() {
-        String rutaServidor = "mongodb://localhost:27017";
         try (MongoClient mongoClient = MongoClients.create(rutaServidor)) {
             MongoDatabase database = mongoClient.getDatabase("testDB");
             MongoCollection<Document> collection = database.getCollection("veterinaria");
@@ -327,7 +311,6 @@ public class exemplesVariats {
     }
 
     public static void findVetDocuments() {
-        String rutaServidor = "mongodb://localhost:27017";
         try (MongoClient mongoClient = MongoClients.create(rutaServidor)) {
             MongoDatabase database = mongoClient.getDatabase("testDB");
             MongoCollection<Document> collection = database.getCollection("veterinaria");
@@ -347,7 +330,6 @@ public class exemplesVariats {
     }
 
     public static void updateVetDocuments() {
-        String rutaServidor = "mongodb://localhost:27017";
         try (MongoClient mongoClient = MongoClients.create(rutaServidor)) {
             MongoDatabase database = mongoClient.getDatabase("testDB");
             MongoCollection<Document> collection = database.getCollection("veterinaria");
@@ -360,7 +342,6 @@ public class exemplesVariats {
     }
 
     public static void deleteVetDocuments() {
-        String rutaServidor = "mongodb://localhost:27017";
         try (MongoClient mongoClient = MongoClients.create(rutaServidor)) {
             MongoDatabase database = mongoClient.getDatabase("testDB");
             MongoCollection<Document> collection = database.getCollection("veterinaria");
