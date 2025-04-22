@@ -1,0 +1,38 @@
+====================================================
+Guía Rápida: Personalizar el Campo `_id` en MongoDB con Java
+====================================================
+
+1. Personalizar el Campo `_id`
+----------------------------------------------------
+
+1.1. Insertar Documentos con `_id` Personalizado
+- Especifica el campo `_id` al crear el documento:
+  Document doc1 = new Document("_id", "A1")
+          .append("nom", "Pere")
+          .append("edat", 22)
+          .append("ciutat", "València");
+  collection.insertOne(doc1);
+
+  Document doc2 = new Document("_id", "B2")
+          .append("nom", "Laura")
+          .append("edat", 27)
+          .append("ciutat", "Madrid");
+  Document doc3 = new Document("_id", "Costafreda")
+          .append("nom", "Jordi")
+          .append("edat", 31)
+          .append("ciutat", "Sevilla");
+  collection.insertMany(Arrays.asList(doc2, doc3));
+
+1.2. Encontrar Documentos por _id Personalizado
+- Usa el campo _id en las consultas: Document user = collection.find(eq("_id", "A1")).first();
+
+1.3. Actualizar Documentos por _id Personalizado
+- Actualiza documentos usando el campo _id: collection.updateOne(eq("_id", "A1"), set("edat", 23));
+
+1.4. Eliminar Documentos por _id Personalizado
+- Elimina documentos usando el campo _id: collection.deleteOne(eq("_id", "A1"));
+
+Notas Importantes
+- Asegúrate de que el valor de _id sea único dentro de la colección.
+- Puedes usar cualquier tipo de dato para _id, siempre y cuando sea único.
+- Si no especificas un _id, MongoDB generará automáticamente uno del tipo ObjectId.
